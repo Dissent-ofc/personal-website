@@ -1,0 +1,249 @@
+@import "bulma.min.css";
+
+:root {
+    --accent-color: #920a0d;
+    --background-color: #000000;
+    --text-color: #f3d090;
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+	    --accent-color: #920a0d;
+	    --background-color: #faf3c3;
+	    --text-color: #920a0d;
+	}
+}
+
+
+
+/* ---- Font Imports ---- */
+@font-face {
+    font-family: 'PPEditorialNew';
+    src: url('../asset/font/PPEditorialNew-Regular.woff2');
+    font-weight: normal; /* 400 */
+    font-style: normal;
+}
+
+/*
+@font-face {
+    font-family: 'PPEditorialNew';
+    src: url('../asset/font/PPEditorialNew-Ultrabold.otf') format('opentype');
+    font-weight: bold; /* 700
+    font-style: normal;
+}
+@font-face {
+    font-family: 'PPEditorialNew';
+    src: url('../asset/font/PPEditorialNew-Ultralight.otf') format('opentype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+*/
+
+@font-face {
+    font-family: 'PPEditorialNew';
+    src: url('../asset/font/PPEditorialNew-UltralightItalic.woff2');
+    font-weight: 200;
+    font-style: italic;
+}
+
+html, body {
+    background-color: var(--background-color);
+    font-family: 'PPEditorialNew', 'Times New Roman', serif;
+    color: var(--text-color);
+}
+.hero { 
+    color: var(--text-color);
+    z-index: 10;
+    position: relative;
+}
+
+.title, .subtitle { color: var(--text-color); font-weight: normal; }
+.main-greeting.title { line-height: 1.2; }
+
+/* Font Variation Helpers */
+.font-ultralight { font-weight: 200; font-style: normal; }
+.font-ultralight-italic { font-weight: 200; font-style: italic; }
+
+.button.is-black.social-icon { background-color: transparent; border: none; }
+
+.yantra-image { margin-bottom: 2rem; }
+@media screen and (max-width: 768px) {
+    .yantra-image.image { width: 96px; height: 96px; }
+}
+
+/* Inline waving hand GIF */
+.wave-gif { height: 1em; vertical-align: baseline; margin: 0 0.2em; }
+
+
+/* Social Media Icons */
+.social-icon .icon i {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    transition: color 0.2s ease-in-out;
+}
+
+.social-icon:hover .icon i { color: var(--accent-color); }
+
+/* GPG Key Spoiler Effect */
+.gpg-text .spoiler {
+    color: var(--accent-color);
+    background-color: var(--accent-color);
+    
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.gpg-text .spoiler:hover { color: var(--text-color); background-color: transparent; }
+
+.public-key {
+    color: var(--text-color);
+    font-family: monospace;
+    word-break: break-all;   
+    text-decoration: none;
+    margin-top: 0.5rem;
+    transition: color 0.2s ease;
+}
+
+.public-key:hover {
+    color: var(--accent-color);
+}
+
+
+@media screen and (min-width: 1024px) {
+    .main-greeting.title {
+        font-size: 10vh;
+    }
+    .bio .subtitle {
+        font-size: 2rem;
+    }
+    .social-buttons {
+        justify-content: center;
+    }
+}
+
+/* For Firefox */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-color) var(--background-color);
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--accent-color);
+    border-radius: 10px;
+}
+
+
+.about-me-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.about-me-paragraph {
+    width: 60%;
+    padding-right: 5%;
+}
+
+.alice-dance{
+    height: 43vh;
+}
+
+.about-me {
+        padding: 5%;
+    }
+
+.about-me-title {
+    padding-bottom: 5%;
+}
+
+@media screen and (max-width: 768px) {
+    .about-me-paragraph {
+        padding: 0%;
+        width: 100%;
+        justify-content: left;
+    }
+}
+
+.link {
+    color: var(--accent-color);
+}
+
+.link, .link:link, .link:visited {
+  color: var(--accent-color);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 4px; /* The distance between text and underline */
+}
+
+.link::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  background-image: linear-gradient(90deg, var(--accent-color), var(--accent-color)); /* underline color */
+  background-size: 0 2px; /* vertical size of underline */
+  background-repeat: no-repeat;
+  background-position: left bottom; /* start position of underline */
+  transition: background-size .3s ease-in; /* duration and timing style of animation */
+}
+
+a:hover::before {
+  background-size: 100% 2px;
+}
+
+.assasins-creed {
+    position: absolute;
+    top: 100vh;
+    right: 0;
+    transform: translate(30%, -75%);
+    z-index: 0;
+    pointer-events: none; /* Allows clicking through it */
+}
+
+/* The ASCII text styling */
+.assasins-creed-ascii {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 10pt;
+    font-weight: bold;
+    color: var(--accent-color);
+    background-color: transparent;
+    border: none;
+    opacity: 0.9;
+    user-select: none;
+    letter-spacing: 1.5px;
+    z-index: -1;
+
+    /* animation */
+    animation: rotate-center 15s linear infinite;
+
+    /* hw accln */
+    will-change: transform;
+}
+
+@keyframes rotate-center {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.footer-badge {
+	display: flex;
+	justify-content: center;
+}
+
+.badge {
+	padding-left: 1%;
+	height: 5vh;
+}
