@@ -1,4 +1,4 @@
-My Personal Website @ https://theindiandev.in
+My Personal Website
 
 For production optimized build :
 ```bash
