@@ -14,9 +14,3 @@ This repository is configured for Vercel via `vercel.json`:
 
 - Build command: `npm run build`
 - Output directory: `dist`
-
-If you configure settings manually in Vercel dashboard, use the same values above.
-
-## License
-
-MIT
