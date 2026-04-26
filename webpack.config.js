@@ -64,6 +64,22 @@ module.exports = {
       },
     }),
 
+    // Blog page
+new HtmlWebpackPlugin({
+  template: './blog.html',
+  filename: 'blog/index.html',
+  inject: 'body',
+  chunks: ['main', 'styles'],
+}),
+
+// Projects page
+new HtmlWebpackPlugin({
+  template: './projects.html',
+  filename: 'projects/index.html',
+  inject: 'body',
+  chunks: ['main', 'styles'],
+}),
+
     // PurgeCSS now reliably scans your HTML for classes.
     new PurgeCSSPlugin({
       paths: glob.sync(`${path.join(__dirname, 'index.html')}`, { nodir: true }),
