@@ -39,7 +39,7 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({
       // The final, optimized CSS file.
-      filename: 'style/[name].[contenthash:8].css',
+      filename: 'style/style.css',
     }),
 
     // This plugin will generate the final index.html in the dist folder.
@@ -49,7 +49,7 @@ module.exports = {
       // IMPORTANT: Inject both the final JS and CSS bundles.
       // It will automatically replace your source <link> and <script> tags.
       inject: 'body',
-      chunks: ['main', 'styles'], // Specify which bundles to inject.
+      chunks: ['main'], // CSS is linked explicitly so the same path works locally and in production.
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -69,7 +69,7 @@ new HtmlWebpackPlugin({
   template: './blog.html',
   filename: 'blog/index.html',
   inject: 'body',
-  chunks: ['main', 'styles'],
+  chunks: ['main'],
 }),
 
 // Projects page
@@ -77,7 +77,7 @@ new HtmlWebpackPlugin({
   template: './projects.html',
   filename: 'projects/index.html',
   inject: 'body',
-  chunks: ['main', 'styles'],
+  chunks: ['main'],
 }),
 
     // PurgeCSS now reliably scans your HTML for classes.
