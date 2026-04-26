@@ -82,7 +82,11 @@ new HtmlWebpackPlugin({
 
     // PurgeCSS now reliably scans your HTML for classes.
     new PurgeCSSPlugin({
-      paths: glob.sync(`${path.join(__dirname, 'index.html')}`, { nodir: true }),
+      paths: glob.sync(['*.html', 'script/**/*.js'], {
+        cwd: __dirname,
+        nodir: true,
+        absolute: true,
+      }),
       // Use smart, broad regular expressions to safelist frameworks
       // instead of a fragile, hardcoded list.
       safelist: {
